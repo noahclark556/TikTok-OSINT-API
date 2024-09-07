@@ -10,16 +10,21 @@ interface BasicProfile {
     followers?: string;
 }
 
+interface PostComment {
+    comment:string;
+    posterTag:string;
+    posterName:string;
+    likeCount:string;
+}
+
 interface Post {
-    headingName?: string;
-    headingTag?: string;
-    headingDate?: string;
-    caption?: string;
-    commentCount?: string;
-    repostCount?: string;
-    likeCount?: string;
-    mediaThumbLink?: string;
-    imageLink?: string;
+    postNumber:number;
+    postUrl:string;
+    likeCount:string;
+    commentCount:string;
+    repostCount:string;
+    caption:string;
+    comments:Array<PostComment>
 }
 
 interface Query {

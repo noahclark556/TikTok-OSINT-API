@@ -9,12 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const osintx_1 = require("./logic/api/osintx");
+const osintt_1 = require("./logic/api/osintt");
 const username = '';
 const key = '';
 const q = JSON.parse('{"title":true, "subtitle":true, "following":true, "followers":true, "likes":true, "bio":true, "link":true}');
 // const q = JSON.parse('{"name":true,"bio":true,"followers":true,"following":true,"posts":5}');
-let osintApi = new osintx_1.OsintX();
+let osintApi = new osintt_1.OsintX();
 // getting links will be gathering all data-e2e="user-post-item" > a[1].href
 // put all those in a list
 // navigate to each with browser, grab data from each.

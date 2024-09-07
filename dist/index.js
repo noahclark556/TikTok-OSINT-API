@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
-const osintx_1 = require("./logic/api/osintx");
+const osintt_1 = require("./logic/api/osintt");
 const app = (0, express_1.default)();
 const port = process.env.PORT || 8080;
 app.use((0, cors_1.default)());
@@ -28,7 +28,7 @@ app.get('/ttosint', (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             console.log('Invalid API Key');
             return;
         }
-        let osintApi = new osintx_1.OsintX();
+        let osintApi = new osintt_1.OsintX();
         const query = osintApi.buildQuery(username, q);
         const result = yield osintApi.executeQuery(query);
         res.json({ data: result });

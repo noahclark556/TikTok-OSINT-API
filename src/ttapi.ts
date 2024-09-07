@@ -1,4 +1,4 @@
-import {OsintX} from './logic/api/osintx'
+import {OsintX} from './logic/api/osintt'
 const username = '';
 const key = '';
 const q = JSON.parse('{"title":true, "subtitle":true, "following":true, "followers":true, "likes":true, "bio":true, "link":true}');
