@@ -140,6 +140,7 @@ class OsintX {
             yield osintBrowser.initialize();
             const page = osintBrowser.page;
             if (page) {
+                // Listen for request for post data, store validated url
                 const requestListener1 = (request) => __awaiter(this, void 0, void 0, function* () {
                     if (request.url().includes('item_list/?WebIdLastTime')) {
                         this.endpoints.posts = request.url();
@@ -147,6 +148,7 @@ class OsintX {
                         page === null || page === void 0 ? void 0 : page.off('request', requestListener1);
                     }
                 });
+                // Listen for request for comment data, store validated url
                 const requestListener2 = (request) => __awaiter(this, void 0, void 0, function* () {
                     if (request.url().includes('comment/list/?WebIdLastTime')) {
                         this.endpoints.comments = request.url();

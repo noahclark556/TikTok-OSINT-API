@@ -2,7 +2,7 @@ import { Page } from 'puppeteer';
 import { sendMessageToGPT4 } from '../services/gpt-client';
 import { OsintBrowser } from '../services/browser'
 import { BasicSelectors, Endpoints, PostSelectors } from '../models/classes/selectors';
-import { Post } from '../models/classes/newModels';
+import { Post, PostComment } from '../models/classes/newModels';
 
 import axios from 'axios';
 
@@ -59,7 +59,8 @@ export class OsintX {
         }
     }
 
-    private async getComments(url:string){
+    private async getComments(url:string) : Promise<Array<PostComment>>{
+        let comments: Array<PostComment> = [];
         try {
             const response = await axios.get(url, {
                 headers: {
@@ -69,14 +70,15 @@ export class OsintX {
             // console.log(url);
             let result = response.data;
             console.log(result);
-            // let items : Array<any> = result["itemList"];
-            // items.forEach(p => {
-            //     let post:Post = Post.fromJson(p);
-            //     this.getComments(post.commentUrl);
-            // });
+            let items : Array<any> = result["comments"];
+            items.forEach(p => {
+                let comment:PostComment = PostComment.fromJson(p);
+                comments.push(comment);
+            });
         } catch (error) {
             console.error('Error fetching data:', error);
         }
+        return comments;
     }
 
     private async getPosts(endpoints:Endpoints):Promise<Array<Post>>{
@@ -125,6 +127,7 @@ export class OsintX {
         const page = osintBrowser.page;
 
         if(page){
+            // Listen for request for post data, store validated url
             const requestListener1 = async (request: any) => {
                 if (request.url().includes('item_list/?WebIdLastTime')) {
                   this.endpoints.posts = request.url();
@@ -132,6 +135,7 @@ export class OsintX {
                   page?.off('request', requestListener1);
                 }
               };
+              // Listen for request for comment data, store validated url
               const requestListener2 = async (request: any) => {
                 if (request.url().includes('comment/list/?WebIdLastTime')) {
                   this.endpoints.comments = request.url();

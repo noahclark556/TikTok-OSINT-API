@@ -1,3 +1,5 @@
+import { arrayBuffer } from "stream/consumers";
+
 export class Author {
     avatarLarger: string;
     avatarMedium: string;
@@ -156,7 +158,7 @@ export  class Video {
     }
   }
   
-export  class ItemControl {
+export class ItemControl {
     can_repost: boolean;
   
     constructor(data: any) {
@@ -168,6 +170,70 @@ export  class ItemControl {
     }
   }
   
+export class PostComment {
+    author_pin: boolean;
+    aweme_id: string;
+    cid: string;
+    collect_stat: number;
+    comment_language: string;
+    comment_post_item_ids: any;
+    create_time: number;
+    digg_count: number;
+    forbid_reply_with_video: boolean;
+    image_list: any;
+    is_author_digged: boolean;
+    is_comment_translatable: boolean;
+    label_list: any;
+    no_show: boolean;
+    reply_comment: any;
+    reply_comment_total: number;
+    reply_id: string;
+    reply_to_reply_id: string;
+    share_info: any;
+    status: number;
+    stick_position: number;
+    text: string;
+    text_extra: Array<any>;
+    trans_btn_style: number;
+    user: any;
+    user_buried: boolean;
+    user_digged: number;
+
+    constructor(data:any){
+      this.author_pin = data.author_pin;
+      this.aweme_id = data.aweme_id;
+      this.cid = data.cid;
+      this.collect_stat = data.collect_stat;
+      this.comment_language = data.comment_language;
+      this.comment_post_item_ids = data.comment_post_item_ids;
+      this.create_time = data.create_time;
+      this.digg_count = data.digg_count;
+      this.forbid_reply_with_video = data.forbid_reply_with_video;
+      this.image_list = data.image_list;
+      this.is_author_digged = data.is_author_digged;
+      this.is_comment_translatable = data.is_comment_translatable;
+      this.label_list = data.label_list;
+      this.no_show = data.no_show;
+      this.reply_comment = data.reply_comment;
+      this.reply_comment_total = data.reply_comment_total;
+      this.reply_id = data.reply_id;
+      this.reply_to_reply_id = data.reply_to_reply_id;
+      this.share_info = data.share_info;
+      this.status = data.status;
+      this.stick_position = data.stick_position;
+      this.text = data.text;
+      this.text_extra = data.text_extra;
+      this.trans_btn_style = data.trans_btn_style;
+      this.user = data.user;
+      this.user_buried = data.user_buried;
+      this.user_digged = data.user_digged;
+    }
+
+    static fromJson(json: any): PostComment {
+      return new PostComment(json);
+    }
+}
+
 export class Post {
     AIGCDescription: string;
     author: Author;
@@ -197,6 +263,7 @@ export class Post {
     textExtra: any[];  // Adjust based on your data
     video: Video;
     postUrl: string;
+    comments: Array<Comment>;
   
     constructor(data: any) {
       this.AIGCDescription = data.AIGCDescription;
@@ -227,6 +294,7 @@ export class Post {
       this.textExtra = data.textExtra;
       this.video = Video.fromJson(data.video);
       this.postUrl = `https://www.tiktok.com/@joemyheck/video/${data.id}`
+      this.comments = [];
     }
   
     public commentUrl(url: string, id: string): string {
