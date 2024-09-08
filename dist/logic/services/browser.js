@@ -47,7 +47,7 @@ class OsintBrowser {
         return __awaiter(this, void 0, void 0, function* () {
             if (this.browser) {
                 console.log("Browser Closed");
-                // await this.browser.close();
+                yield this.browser.close();
             }
         });
     }

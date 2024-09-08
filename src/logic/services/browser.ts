@@ -36,7 +36,7 @@ export class OsintBrowser {
     public async close() {
         if (this.browser) {
             console.log("Browser Closed");
-            // await this.browser.close();
+            await this.browser.close();
         }
     }
 }

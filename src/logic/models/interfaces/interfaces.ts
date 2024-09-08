@@ -17,15 +17,15 @@ interface PostComment {
     likeCount:string;
 }
 
-interface Post {
-    postNumber:number;
-    postUrl:string;
-    likeCount:string;
-    commentCount:string;
-    repostCount:string;
-    caption:string;
-    comments:Array<PostComment>
-}
+// interface Post {
+//     postNumber:number;
+//     postUrl:string;
+//     likeCount:string;
+//     commentCount:string;
+//     repostCount:string;
+//     caption:string;
+//     comments:Array<PostComment>
+// }
 
 interface Query {
     username: string;

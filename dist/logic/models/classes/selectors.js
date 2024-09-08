@@ -1,6 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostSelectors = exports.BasicSelectors = void 0;
+exports.PostSelectors = exports.BasicSelectors = exports.Endpoints = void 0;
+class Endpoints {
+    constructor() {
+        this.posts = '';
+        this.comments = '';
+    }
+}
+exports.Endpoints = Endpoints;
+// https://www.tiktok.com/api/comment/list/?WebIdLastTime=1725728353&aid=1988&app_language=ja-JP&app_name=tiktok_web&aweme_id=7411613042955390250&browser_language=en-US&browser_name=Mozilla&browser_online=true&browser_platform=MacIntel&browser_version=5.0%20%28Macintosh%3B%20Intel%20Mac%20OS%20X%2010_15_7%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F128.0.0.0%20Safari%2F537.36&channel=tiktok_web&cookie_enabled=true&count=20&current_region=JP&cursor=0&data_collection_enabled=true&device_id=7411946790722143786&device_platform=web_pc&enter_from=tiktok_web&focus_state=true&fromWeb=1&from_page=video&history_len=5&is_fullscreen=true&is_non_personalized=false&is_page_visible=true&odinId=7411946813265445931&os=mac&priority_region=&referer=&region=US&screen_height=982&screen_width=1512&tz_name=America%2FNew_York&user_is_login=false&webcast_language=en&X-Bogus=
 class BasicSelectors {
     constructor(waitFor = 5) {
         this.infoSelectors = {
