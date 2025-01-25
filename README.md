@@ -1,19 +1,12 @@
-# This is the developer repo, not intended to be a public repo
-# Call from terminal
-## Use GET method for now
+# TikTok OSINT API
 
 ## Note
+### This is an older project, the repo was private but I decided recently to make it public. The setup and functionality is similar to my X/Twitter OSINT API, so check out that readme for more details.
 ### Need to create .env in root and put OPENAI_API_KEY= inside of it
 ### Run the following to get a curl command from unescaped url
 - `run node dist/url-escape`
 https://www.tiktok.com/@joemyheck
 
-### Production
-- Depth of 5
-- `curl -X GET "https://osintapi-4px4gnxj2q-ue.a.run.app/osintx?username=realdonaldtrump&apikey=noahclark556&query=%7B%22bio%22%3Atrue%2C%22name%22%3Atrue%2C%22following%22%3Atrue%2C%22followers%22%3Atrue%2C%22posts%22%3A5%2C%22aidescription%22%3Atrue%7D"`
-
-- Depth of 10
-- `curl -X GET "https://osintapi-4px4gnxj2q-ue.a.run.app/osintx?username=realdonaldtrump&apikey=noahclark556&query=%7B%22bio%22%3Atrue%2C%22name%22%3Atrue%2C%22following%22%3Atrue%2C%22followers%22%3Atrue%2C%22posts%22%3A10%2C%22aidescription%22%3Atrue%7D"`
 
 ### Test
 ## Everything
@@ -41,7 +34,7 @@ https://www.tiktok.com/@joemyheck
 
 3. **Set the Project:**
     ```bash
-    gcloud config set project qc-apis
+    gcloud config set project {projectName}
     ```
 
 ### Create Required Files
@@ -55,12 +48,12 @@ https://www.tiktok.com/@joemyheck
 This step needs to be run every time the code changes:
 
 ```bash
-gcloud builds submit --tag gcr.io/qc-apis/ttosintapi
+gcloud builds submit --tag gcr.io/{projectName}/ttosintapi
 ```
 
 ### Deploy to Cloud Run
 ```bash
-gcloud run deploy ttosintapi --image gcr.io/qc-apis/ttosintapi --platform managed
+gcloud run deploy ttosintapi --image gcr.io/{projectName}/ttosintapi --platform managed
 ```
 > **Note:** Use number `33` for `us-east1`.
 
@@ -78,7 +71,7 @@ gcloud config set run/region us-east1
 
 ### Grant Permissions (if Permission Error Occurs)
 ```bash
-gcloud projects add-iam-policy-binding qc-apis --member "DEFAULT_SERVICE_ACCOUNT_HERE" --role "roles/storage.admin"
+gcloud projects add-iam-policy-binding {projectName} --member "DEFAULT_SERVICE_ACCOUNT_HERE" --role "roles/storage.admin"
 ```
 
 ### Run and Test Locally
