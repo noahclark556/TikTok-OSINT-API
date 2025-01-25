@@ -1,7 +1,9 @@
 # TikTok OSINT API
 
 ## Note
-### This is an older project, the repo was private but I decided recently to make it public. The setup and functionality is similar to my X/Twitter OSINT API, so check out that readme for more details.
+### This is an older project, the repo was private but I decided recently to make it public. The setup and functionality is similar to my X/Twitter OSINT API, so check out that readme for more details. 
+### I tried to clean up as much as I could, I will come back later and publish an updated version.
+### This API does not use the official TikTok API in any way. Purely web scraping techniques.
 ### Need to create .env in root and put OPENAI_API_KEY= inside of it
 ### Run the following to get a curl command from unescaped url
 - `run node dist/url-escape`
