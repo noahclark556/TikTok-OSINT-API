@@ -12,7 +12,7 @@ app.get('/ttosint', async (req: Request, res: Response) => {
         const key = req.query.apikey as string;
         const q = JSON.parse(req.query.query as string);
 
-        if (!key || (key && key != 'noahclark556')) {
+        if (!key || (key && key != 'Custom_API_KEY')) {
             res.json({ error: 'Invalid API Key' });
             console.log('Invalid API Key');
             return;
