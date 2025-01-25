@@ -10,15 +10,15 @@ https://www.tiktok.com/@joemyheck
 
 ### Test
 ## Everything
-- `curl -X GET "http://localhost:8080/osintx?username=realdonaldtrump&apikey=noahclark556&query=%7B%22bio%22%3Atrue%2C%22name%22%3Atrue%2C%22following%22%3Atrue%2C%22followers%22%3Atrue%2C%22posts%22%3A5%2C%22aidescription%22%3Atrue%7D"`
+- `curl -X GET "http://localhost:8080/osintx?username=realdonaldtrump&apikey=custom_api_key&query=%7B%22bio%22%3Atrue%2C%22name%22%3Atrue%2C%22following%22%3Atrue%2C%22followers%22%3Atrue%2C%22posts%22%3A5%2C%22aidescription%22%3Atrue%7D"`
 
-- `curl -X GET "http://localhost:8080/osintx?username=elonmusk&apikey=noahclark556&query=%7B%22bio%22%3Atrue%2C%22name%22%3Atrue%2C%22following%22%3Atrue%2C%22followers%22%3Atrue%2C%22posts%22%3A5%2C%22aidescription%22%3Atrue%7D"`
+- `curl -X GET "http://localhost:8080/osintx?username=elonmusk&apikey=custom_api_key&query=%7B%22bio%22%3Atrue%2C%22name%22%3Atrue%2C%22following%22%3Atrue%2C%22followers%22%3Atrue%2C%22posts%22%3A5%2C%22aidescription%22%3Atrue%7D"`
 
 ## Everything except for ai
-- `curl -X GET "http://localhost:8080/osintx?username=realdonaldtrump&apikey=noahclark556&query=%7B%22bio%22%3Atrue%2C%22name%22%3Atrue%2C%22following%22%3Atrue%2C%22followers%22%3Atrue%2C%22posts%22%3A5%7D"`
+- `curl -X GET "http://localhost:8080/osintx?username=realdonaldtrump&apikey=custom_api_key&query=%7B%22bio%22%3Atrue%2C%22name%22%3Atrue%2C%22following%22%3Atrue%2C%22followers%22%3Atrue%2C%22posts%22%3A5%7D"`
 
 ## Everything except for post
-`curl -X GET "http://localhost:8080/osintx?username=realdonaldtrump&apikey=noahclark556&query=%7B%22bio%22%3Atrue%2C%22name%22%3Atrue%2C%22following%22%3Atrue%2C%22followers%22%3Atrue%2C%22aidescription%22%3Atrue%7D"`
+`curl -X GET "http://localhost:8080/osintx?username=realdonaldtrump&apikey=custom_api_key&query=%7B%22bio%22%3Atrue%2C%22name%22%3Atrue%2C%22following%22%3Atrue%2C%22followers%22%3Atrue%2C%22aidescription%22%3Atrue%7D"`
 
 
 ### Authenticate with Google Cloud CLI
