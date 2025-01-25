@@ -23,7 +23,7 @@ app.get('/ttosint', (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         const username = req.query.username;
         const key = req.query.apikey;
         const q = JSON.parse(req.query.query);
-        if (!key || (key && key != 'noahclark556')) {
+        if (!key || (key && key != 'customapikey')) {
             res.json({ error: 'Invalid API Key' });
             console.log('Invalid API Key');
             return;
